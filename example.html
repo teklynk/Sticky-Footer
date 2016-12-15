@@ -1,119 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="sticky.js"></script>
-  <style>
-  
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    .bannerwrapper {
-      vertical-align: middle;
-      width: 100%;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Middle content area */
-    .content {
-      padding-top: 12px;
-      padding-bottom: 40px;
-      height: 100%;
-      min-height: 150px;
-    }
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example</title>
+
+<!-- jQuery CDN -->
+<script type="text/javascript" language="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" language="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap Core CSS CDN -->
+<link type="text/css" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
 </head>
 <body>
+  <script>
+    $(document).ready(function() {
+        // Sticky Footer initial page load and resize
+        $(window).on('load resize', function() {
+            var bodyHeight = $(window).height();
+            var navbarHeight = $('nav').height();
+            var footerHeight = $('footer').height();
+            var calcContentHeight = bodyHeight - navbarHeight - footerHeight - 21; //change last value to compensate for padding.
 
-<nav class="navbar navbar-inverse navbar-static-top" id="#top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
+            if (calcContentHeight > 0) {
+              $('.content').css({'min-height': calcContentHeight});
+            }
+
+        });
+    });
+  </script>
+
+  <style>
+    .content {
+      min-height: 200px;
+    }
+    footer {
+      background: #101010;
+      color: #fff;
+      height: 60px;
+      width: 100%;
+    }
+  </style>
+
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+              <a href="#">About</a>
+          </li>
+          <li>
+              <a href="#">Services</a>
+          </li>
+          <li>
+              <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+  </nav>
+
+  <div class="container content">
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h1>A Bootstrap Starter Template</h1>
+        <p class="lead">Complete with pre-defined file paths that you won't have to change!!</p>
+        <ul class="list-unstyled">
+            <li>Bootstrap v3.3.7</li>
+            <li>jQuery v1.11.1</li>
+        </ul>
+      </div>
     </div>
   </div>
-</nav>
 
-<header class="bannerwrapper">
-  <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=1024%C3%97200&w=1024&h=200">
-</header>
-  
-<div class="container-fluid text-center content">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-    </div>
-    <div class="col-sm-8 text-left"> 
-      <h1>Welcome</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
-    </div>
-    <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-left">
+          <ul class="nav navbar-nav list-unstyled">
+            <li>Sticky Footer</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-<footer class="container-fluid text-center footer">
-  <p>Footer Text</p>
-</footer>
+  </footer>
 
 </body>
 </html>
